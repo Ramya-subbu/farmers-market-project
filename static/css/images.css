@@ -1,0 +1,58 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Image Gallery Styles */
+
+.image-gallery {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-gallery h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-container img {
+    width: calc(33.33% - 20px);
+    height: 150px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+    .gallery-container img {
+        width: calc(50% - 20px);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .gallery-container img {
+        width: 100%;
+    }
+}

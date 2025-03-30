@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-container">
+            <h2>Signup</h2>
+            <form id="signup-form" action="signup.html" method="post">
+                {% csrf_token %}
+                
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <span id="name-error"></span>
+                <br><br>
+                
+                <label for="mobile-number">Mobile Number:</label>
+                <input type="text" id="mobile-number" name="mobile-number">
+                <span id="mobile-number-error"></span>
+                <br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <span id="password-error"></span>
+                <br><br>
+                
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password">
+                <span id="confirm-password-error"></span>
+                <br><br>
+                
+                <label for="user-type">User Type:</label>
+                <select id="user-type" name="user-type">
+                    <option value="farmer">Farmer</option>
+                    <option value="buyer">Buyer</option>
+                </select>
+                <span id="user-type-error"></span>
+                <br><br>
+                
+                <label for="address-line-1">Address Line 1:</label>
+                <input type="text" id="address-line-1" name="address-line-1">
+                <span id="address-line-1-error"></span>
+                <br><br>
+                
+                <label for="address-line-2">Address Line 2:</label>
+                <input type="text" id="address-line-2" name="address-line-2">
+                <span id="address-line-2-error"></span>
+                <br><br>
+                
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city">
+                <span id="city-error"></span>
+                <br><br>
+                
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state">
+                <span id="state-error"></span>
+                <br><br>
+                
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode">
+                <span id="pincode-error"></span>
+                <br><br>
+                
+                <button type="submit" class="button">Signup</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    <script src="static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="profile-container">
+      <h2>Profile Page</h2>
+      <div id="user-data"></div>
+      <button id="logout-button">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    console.log('User data:', userData);
+
+    if (userData) {
+      const userDataDiv = document.getElementById('user-data');
+      console.log('User data div:', userDataDiv);
+
+      userDataDiv.innerHTML = `
+        <h3>User Information</h3>
+        <p><strong>Name:</strong> ${userData.name}</p>
+        <p><strong>Mobile Number:</strong> ${userData.mobileNumber}</p>
+        <p><strong>User Type:</strong> ${userData.userType}</p>
+        <h3>Address</h3>
+        <p>${userData.addressLine1}, ${userData.addressLine2}</p>
+        <p>${userData.city}, ${userData.state}, ${userData.pincode}</p>
+      `;
+
+      console.log('User data displayed');
+
+      // Add event listener to logout button
+      const logoutButton = document.getElementById('logout-button');
+      logoutButton.addEventListener('click', () => {
+        localStorage.removeItem('userData');
+        window.location.href = 'login.html';
+      });
+    } else {
+      console.log('No user data found');
+      window.location.href = 'login.html'; // Redirect to login page if no user data found
+    }
+// Get the user data from local storage
+const UserData = JSON.parse(localStorage.getItem('UserData'));
+
+// Get the profile elements
+const usernameElement = document.getElementById('username');
+const mobileNumberElement = document.getElementById('mobile-number');
+const addressElement = document.getElementById('address');
+const userTypeElement = document.getElementById('user-type');
+
+// Display the user data on the profile page
+usernameElement.textContent = `Name: ${userData.name}`;
+mobileNumberElement.textContent = `Mobile Number: ${userData.mobileNumber}`;
+addressElement.textContent = `Address: ${userData.address}`;
+userTypeElement.textContent = `User Type: ${userData.userType}`;
+
+// Add event listener to the logout button
+const logoutButton = document.getElementById('logout-button');
+logoutButton.addEventListener('click', () => {
+    // Remove the user data from local storage
+    localStorage.removeItem('userData');
+
+    // Redirect to the login page
+    window.location.href = 'login.html';
+});
+  </script>
+</body>
+</html>

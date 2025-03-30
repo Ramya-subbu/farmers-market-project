@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Administrator Login</title>
+</head>
+<body>
+  <h1>Administrator Login</h1>
+  <form id="admin-login-form">
+    <label for="admin-password">Password:</label>
+    <input type="password" id="admin-password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    // Get the form element
+    const form = document.getElementById('admin-login-form');
+
+    // Add an event listener to the form submission
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Get the password input value
+      const password = document.getElementById('admin-password').value;
+
+      // Check if the password is correct
+      if (password === 'admin123') { // Replace with your desired password
+        // Set a flag in local storage to indicate admin login
+        localStorage.setItem('isAdminLoggedIn', true);
+
+        // Set session data for admin user
+        const session = {};
+        session.role = 'admin';
+        localStorage.setItem('session', JSON.stringify(session));
+
+        // Redirect to the transaction page
+        window.location.href = 'transaction.html';
+      } else {
+        alert('Incorrect password!');
+      }
+    });
+  </script>
+</body>
+</html>

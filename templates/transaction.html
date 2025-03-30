@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transaction Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .transaction-details {
+      width: 50%;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="transaction-details">
+    <h2>Transaction Details</h2>
+    <p><strong>Transaction Mode:</strong> <span id="transaction-mode"></span></p>
+    <p><strong>Product Name:</strong> <span id="product-name"></span></p>
+    <p><strong>Quantity:</strong> <span id="quantity"></span></p>
+    <p><strong>Price:</strong> <span id="price"></span></p>
+    <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
+  </div>
+
+  <script>
+    // Check if the user has admin access
+    const session = JSON.parse(localStorage.getItem('session'));
+    if (session.role !== 'admin' || !localStorage.getItem('isAdminLoggedIn')) {
+      // Redirect to the login page
+      window.location.href = 'admin-login.html';
+    }
+    // Check if the admin login flag is set
+    if (!localStorage.getItem('isAdminLoggedIn')) {
+      // Redirect to the admin login page
+      window.location.href = 'admin-login.html';
+    }
+    // Get transaction details from local storage
+    const transactionDetails = JSON.parse(localStorage.getItem('transactionDetails'));
+
+    // Display transaction details on the page
+    document.getElementById('transaction-mode').innerText = transactionDetails.transactionMode;
+    document.getElementById('product-name').innerText = transactionDetails.productName;
+    document.getElementById('quantity').innerText = transactionDetails.quantity;
+    document.getElementById('price').innerText = transactionDetails.price;
+    document.getElementById('total-amount').innerText = transactionDetails.totalAmount;
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} - Product Details</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'images/farmer.png' %}" alt="Farmers Market Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="buyer-central.html">Buyer Central</a></li>
+                <li><a href="help-center.html">Help Center</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
+        <h1>{{ product.name }}</h1>
+        <p>Price: ₹{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <button>Add to Cart</button>
+    </section>
+</body>
+</html>

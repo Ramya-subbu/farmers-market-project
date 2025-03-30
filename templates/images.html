@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/images.css' %}">
+    <title>Images</title>
+</head>
+<body>
+    <section class="image-gallery">
+        <h1>Image Gallery</h1>
+        <div class="gallery-container">
+            <img src="{% static 'images/farmers/farmer1.png.png' %}" alt="Farmer Image 1">
+            <img src="{% static 'images/farmers/farmer2.png' %}" alt="Farmer Image 2">
+            <img src="{% static 'images/farmers/farmer3.png' %}" alt="Farmer Image 3">
+            <img src="{% static 'images/farmers/farmer4.png' %}" alt="Farmer Image 4">
+            <img src="{% static 'images/farmers/farmer5.png' %}" alt="Farmer Image 5">
+            <img src="{% static 'images/farmers/farmer6.png' %}" alt="Farmer Image 6">
+        </div>
+    </section>
+</body>
+</html>

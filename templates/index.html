@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>farmersmarket.com</title>
+    <!-- Link to the CSS file inside the static folder -->
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="static/images/farmer.png">
+    <!-- Include Font Awesome (for search icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Logo image, assuming it's inside the static/images folder -->
+            <img src="static/images/farmer.png" alt="Farmers Market Logo">
+        </div>
+        <nav>
+            <div class="login-signup">
+                <a href="login.html" class="login">Login</a>
+                <a href="signup.html" class="signup">Sign Up</a>
+            </div>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="buyer-central.html">Buyer Central</a></li>
+                <li><a href="help-center.html">Help Center</a></li>
+            </ul>
+        </nav>
+        <p class="hero-text">An Ecommerce Website For Farmers Marketing</p>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Product name" value="Product name">
+            <button class="search-btn" onclick="searchProducts()"><i class="fas fa-search"></i></button>
+        </div>
+        <script>
+                    function searchProducts() {
+        var searchQuery = document.getElementById("search-input").value.trim().toLowerCase();
+        if (searchQuery === "" || searchQuery === "product name") {
+            return;
+        }
+
+        var searchResults = {
+            "fruits": ["apple", "mango", "banana", "orange"],
+            "vegetables": ["carrot", "broccoli", "potato", "onion"],
+            "grocery": ["rice", "pulses", "flour", "sugar"],
+            "artificial plants": ["artificial rose plant", "artificial snake plant", "artificial peace lily plant", "artificial bamboo plant"]
+        };
+
+        if (searchResults["fruits"].includes(searchQuery)) {
+            window.location.href = "fruits.html?product=" + searchQuery;
+        } else if (searchResults["vegetables"].includes(searchQuery)) {
+            window.location.href = "vegetables.html?product=" + searchQuery;
+        } else if (searchResults["grocery"].includes(searchQuery)) {
+            window.location.href = "grocery.html?product=" + searchQuery;
+        } else if (searchResults["artificial plants"].includes(searchQuery)) {
+            window.location.href = "artificial plants.html?product=" + searchQuery;
+        } else {
+            alert("Product not found!");
+        }
+        }
+
+        // Add an event listener to clear the search input when clicked
+        document.getElementById("search-input").addEventListener("click", function() {
+        this.value = "";
+        });
+    </script>          
+    </header>
+
+    <section class="hero">
+        <!-- Image for the hero section, assuming it's inside static/images folder -->
+        <img src="static/images/homepage.jpg" alt="Farmers Market Image">
+    </section>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Now</title>
+  <link rel="stylesheet" href="static/css/buynow.css">
+</head>
+<body>
+  <header>
+    <div id="cart-icon" style="position: fixed; top: 20px; right: 20px; cursor: pointer;">
+      <i class="fas fa-shopping-cart" style="font-size: 28px; color: #fff;"></i>
+      <span id="cart-count" style="position: absolute; top: -5px; right: -10px; background-color: red; color: white; border-radius: 50%; padding: 5px 10px; font-size: 14px; font-weight: bold;">0</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="buy-now-section">
+      <!-- The product details will be populated here -->
+    </section>
+    <section id="place-order-section">
+      <button id="place-order-btn">Place Order</button>
+    </section>
+    <div id="payment-options" style="display: none;">
+      <h3>Payment Options:</h3>
+      <div class="payment-option">
+        <input type="radio" id="cash-on-delivery" name="payment-option" value="cash-on-delivery">
+        <label for="cash-on-delivery">Cash on Delivery</label>
+      </div>
+      <div class="payment-option">
+        <input type="radio" id="online-payment" name="payment-option" value="online-payment">
+        <label for="online-payment">Online Payment</label>
+        <div id="online-payment-options" style="display: none;">
+          <div class="online-payment-option">
+            <input type="radio" id="gpay" name="online-payment-option" value="gpay">
+            <label for="gpay">GPay</label>
+            <input type="text" id="gpay-upi" placeholder="Enter UPI ID" style="display: none;">
+          </div>
+          <div class="online-payment-option">
+            <input type="radio" id="phonepay" name="online-payment-option" value="phonepay">
+            <label for="phonepay">PhonePe</label>
+            <button id="phonepay-scan-qr">Scan QR Code</button>
+            <video id="phonepay-scanner" width="300" height="300" style="display: none;"></video>
+          </div>
+          <div class="online-payment-option">
+            <input type="radio" id="net-banking" name="online-payment-option" value="net-banking">
+            <label for="net-banking">Net Banking</label>
+            <input type="text" id="net-banking-ifsc" placeholder="Enter IFSC Code">
+            <input type="text" id="net-banking-account-number" placeholder="Enter Account Number">
+            <input type="text" id="net-banking-branch" placeholder="Enter Branch">
+            <input type="text" id="net-banking-bank-name" placeholder="Enter Bank Name">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/instascan@1.0.0/dist/instascan.min.js"></script>
+  <script src="static/js/buyer-central.js"></script>
+  <script src="static/js/vegetables.js"></script>
+</body>
+</html>
